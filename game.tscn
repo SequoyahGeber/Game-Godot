@@ -52,8 +52,6 @@ sources/4 = SubResource("TileSetAtlasSource_7jktm")
 
 [node name="Game" type="Node2D"]
 
-[node name="HUD" parent="." instance=ExtResource("6_ryrav")]
-
 [node name="Sky" type="TextureRect" parent="."]
 offset_left = -144.0
 offset_top = -765.0
@@ -73,6 +71,8 @@ tile_set = SubResource("TileSet_fc0e3")
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(12, 8)
+
+[node name="HUD" parent="Player" instance=ExtResource("6_ryrav")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -45)

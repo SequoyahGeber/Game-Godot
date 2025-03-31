@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw40qxp2secxi"]
+[gd_scene load_steps=3 format=3 uid="uid://dw40qxp2secxi"]
 
 [ext_resource type="Script" uid="uid://cvkxvipqxqdy2" path="res://scripts/HUD.gd" id="1_k5de2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5de2"]
+font_size = 76
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_k5de2")
@@ -15,3 +18,4 @@ size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.823337, 0.638662, 3.85046e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "this is the score"
+label_settings = SubResource("LabelSettings_k5de2")

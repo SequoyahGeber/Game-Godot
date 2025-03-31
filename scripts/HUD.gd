@@ -8,9 +8,9 @@ func _ready() -> void:
 	# print("Registered Autoloads: ", Engine.get_singleton_list()) # Can comment out if needed
 	# -----------------------------------
 
-	if not Engine.has_singleton("GameManager"):
-		push_error("Autoload 'GameManager' not found! Check spelling in Project Settings -> Autoload.")
-		return
+	#if not Engine.has_singleton("GameManager"):
+	#	push_error("Autoload 'GameManager' not found! Check spelling in Project Settings -> Autoload.")
+	#	return
 
 	if not score_label:
 		push_error("Child node 'scoreLabel' not found in HUD scene!")
