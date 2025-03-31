@@ -1,11 +1,15 @@
 extends Node
 
+signal score_updated(new_score: int)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var score: int = 0
 
+func _ready():
+	print("GameManager Autoload Ready!") # Add this to see if it even runs
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func add_score(amount: int):
+	score += amount
+	emit_signal("score_updated", score)
+
+# Add any other essential functions/variables your game needs from here
+# var lives: int = 3
