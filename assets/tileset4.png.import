@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q2cvi1vc1af"
-path="res://.godot/imported/stoneBrickPlatform.png-b06b4e09b79a164e754f07d10f4b5b6a.ctex"
+uid="uid://da6oxv3a7wewe"
+path="res://.godot/imported/tileset4.png-9fc0872f1b3588c6f11c5c730bed094c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stoneBrickPlatform.png"
-dest_files=["res://.godot/imported/stoneBrickPlatform.png-b06b4e09b79a164e754f07d10f4b5b6a.ctex"]
+source_file="res://assets/tileset4.png"
+dest_files=["res://.godot/imported/tileset4.png-9fc0872f1b3588c6f11c5c730bed094c.ctex"]
 
 [params]
 

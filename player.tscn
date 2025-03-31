@@ -25,20 +25,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
-size = Vector2(24, 19)
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(-1, 9)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -8)
+position = Vector2(1, -7)
 sprite_frames = SubResource("SpriteFrames_i3pqv")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.372243
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_4flbx")
+position = Vector2(1, -7)
+shape = SubResource("CircleShape2D_onrkg")
