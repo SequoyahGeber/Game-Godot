@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: PhysicsBody2D):
 	print(self.name + " detected collision with body: " + body.name)
+	GameManager.add_score(1)
 
 
 func _process(_delta: float) -> void:
