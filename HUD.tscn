@@ -6,11 +6,12 @@
 script = ExtResource("1_k5de2")
 
 [node name="scoreLabel" type="Label" parent="."]
-offset_left = -10.0
-offset_top = -20.0
-offset_bottom = 2.99999
-rotation = 0.0177054
+offset_left = -4.0
+offset_top = -13.0
+offset_right = 117.0
+offset_bottom = 10.0
+rotation = 0.000190589
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.823337, 0.638662, 3.85046e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "0"
+text = "this is the score"

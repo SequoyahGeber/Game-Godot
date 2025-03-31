@@ -5,25 +5,36 @@ extends CanvasLayer
 
 func _ready() -> void:
 	# --- Add this line for debugging ---
-	print("Registered Autoloads: ", Engine.get_singleton_list())
+	# print("Registered Autoloads: ", Engine.get_singleton_list()) # Can comment out if needed
 	# -----------------------------------
 
-	# Check if gameManager exists USING THE CORRECT NAME FROM SETTINGS
-	if not Engine.has_singleton("gameManager"):
-		push_error("Autoload 'gameManager' not found! Check spelling in Project Settings -> Autoload.")
-		return # Stop if gameManager isn't ready
+	if not Engine.has_singleton("GameManager"):
+		push_error("Autoload 'GameManager' not found! Check spelling in Project Settings -> Autoload.")
+		return
 
-	# ... (rest of the function remains the same) ...
 	if not score_label:
 		push_error("Child node 'scoreLabel' not found in HUD scene!")
 		return
 
-	gameManager.connect("score_updated", Callable(self, "_on_GameManager_score_updated"))
-	_on_GameManager_score_updated(gameManager.score)
+	print("HUD: Connecting signal...") # DEBUG
+	GameManager.connect("score_updated", Callable(self, "_on_GameManager_score_updated"))
+
+	print("HUD: Calling initial score update. GameManager.score = ", GameManager.score) # DEBUG
+	_on_GameManager_score_updated(GameManager.score) # Call initial update
+
+	print("HUD: _ready finished.") # DEBUG
+
 
 func _on_GameManager_score_updated(new_score):
-	# ... (rest of the function remains the same) ...
+	# ADD THESE DEBUG LINES:
+	print("HUD: _on_GameManager_score_updated called. new_score = ", new_score)
+
 	if score_label:
-		score_label.text = "Score: " + str(new_score)
+		print("HUD: score_label exists. Current text = '", score_label.text, "'") # See current text
+		var text_to_set = "Score: " + str(new_score)
+		print("HUD: Attempting to set text to = '", text_to_set, "'")
+		score_label.text = text_to_set
+		# Check text IMMEDIATELY after setting it
+		print("HUD: Text set. score_label.text is now = '", score_label.text, "'")
 	else:
-		print("scoreLabel reference lost!")
+		print("HUD: scoreLabel reference lost!")

@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://buawfitytxpo1"]
+[gd_scene load_steps=7 format=4 uid="uid://buawfitytxpo1"]
 
 [ext_resource type="Texture2D" uid="uid://dd88g5nxhy7y2" path="res://assets/sky.png" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dxl1eprfekarv" path="res://player.tscn" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://dqpjgr1fq5t1x" path="res://coin.tscn" id="3_feb5d"]
-[ext_resource type="Texture2D" uid="uid://bx1s1dmivawb5" path="res://assets/stoneBackground.png" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://da6oxv3a7wewe" path="res://assets/tileset4.png" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dw40qxp2secxi" path="res://HUD.tscn" id="6_ryrav"]
 
@@ -54,6 +52,8 @@ sources/4 = SubResource("TileSetAtlasSource_7jktm")
 
 [node name="Game" type="Node2D"]
 
+[node name="HUD" parent="." instance=ExtResource("6_ryrav")]
+
 [node name="Sky" type="TextureRect" parent="."]
 offset_left = -144.0
 offset_top = -765.0
@@ -62,15 +62,6 @@ offset_bottom = -336.0
 scale = Vector2(1.86133, 1.86133)
 texture = ExtResource("1_7jktm")
 expand_mode = 1
-stretch_mode = 1
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-offset_left = -368.0
-offset_top = -177.0
-offset_right = 370.0
-offset_bottom = 23.0
-texture = ExtResource("4_fc0e3")
 stretch_mode = 1
 
 [node name="Layer1" type="TileMapLayer" parent="."]
@@ -87,15 +78,3 @@ position = Vector2(12, 8)
 offset = Vector2(0, -45)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-
-[node name="coin" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(-26, -114)
-
-[node name="coin2" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(116, -162)
-
-[node name="coin3" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(-123, -148)
-
-[node name="HUD" parent="." instance=ExtResource("6_ryrav")]
-script = null
