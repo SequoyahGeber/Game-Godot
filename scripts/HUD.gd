@@ -9,7 +9,7 @@ extends CanvasLayer
 
 var player_node: CharacterBody2D = null
 
-@export var charge_bar_offset: Vector2 = Vector2(0, -40)
+@export var charge_bar_offset: Vector2 = Vector2(0, 80)
 
 func _ready() -> void:
 	# --- Node Checks ---
@@ -57,14 +57,55 @@ func _ready() -> void:
 	print("HUD: _ready finished.")
 
 func find_player_and_connect():
-	var players = get_tree().get_node_in_group("player")
+	var players = get_tree().get_nodes_in_group("player")
 	if not players.is_empty():
 		player_node = players[0] as CharacterBody2D
-		if player_node and player_node.has_signal("jump_chage_started"):
-			player_node.jump_charge_started.connect()
-		
+		if player_node and player_node.has_signal("jump_charge_started"):
+			player_node.jump_charge_started.connect(_on_player_jump_charge_started)
+			player_node.jump_charge_updated.connect(_on_player_jump_charge_updated)
+			player_node.jump_charge_ended.connect(_on_player_jump_charge_ended)
+			print("HUD: Successfully connected to Player signals.")
+		elif not player_node:
+			printerr("HUD Error: Node in 'player' group is not a CharacterBody2D or expected type.")
+		else:
+			printerr("HUD Error: Player node found, but missing required jump charge signals.")
+	else:
+		printerr("HUD Error: Could not find any node in group 'player'. Player connection failed.")
 
 
+func _process(_delta: float) -> void:
+	# --- Update Charge Bar Position ---
+	if charge_bar and charge_bar.visible and is_instance_valid(player_node):
+		var camera := get_viewport().get_camera_2d()
+		if camera:
+			# --- CORRECTED Godot 4 2D World-to-Screen Calculation ---
+			# 1. Get the viewport's visible rectangle size
+			var viewport_size = get_viewport().get_visible_rect().size
+			# 2. Calculate the center of the viewport (this is where the camera's origin appears on screen)
+			var screen_center = viewport_size / 2.0
+
+			# 3. Calculate the player's world position relative to the camera's world position
+			var relative_pos = player_node.global_position - camera.global_position
+
+			# 4. Apply the camera's zoom to this relative position. This gives the offset
+			#    from the screen center in pixels.
+			var zoomed_offset = relative_pos * camera.zoom
+
+			# 5. The final screen position is the screen's center plus the calculated offset
+			var screen_pos = screen_center + zoomed_offset
+			# --- END OF CALCULATION ---
+
+
+			# --- Apply vertical offset and horizontal centering ---
+			# Calculate horizontal offset to center the bar
+			var bar_center_offset = Vector2(charge_bar.size.x / 2.0, 0)
+
+			# Set the charge bar's position using global_position (correct for CanvasLayer)
+			# Apply the vertical offset configured earlier
+			charge_bar.global_position = screen_pos + charge_bar_offset - bar_center_offset
+			print("DEBUG: Setting charge bar position to: ", charge_bar.global_position)
+
+		# else: Handle case where there's no 2D camera if necessary
 func _on_GameManager_score_updated(new_score):
 	print("HUD: _on_GameManager_score_updated called. new_score = ", new_score) # DEBUG
 
@@ -89,3 +130,21 @@ func _on_GameManager_lives_updated(new_lives):
 		print("HUD: Text set. lives_label.text is now = '", lives_label.text, "'") # DEBUG
 	else:
 		print("HUD: livesLabel reference lost!")
+func _on_player_jump_charge_started():
+	if charge_bar:
+		charge_bar.visible = true
+		charge_bar.value = 0.0
+		print("HUD: Charge started, showing bar.")
+
+func _on_player_jump_charge_updated(charge_ratio: float):
+	print("DEBUG: _on_player_jump_charge_started called.")
+	print("DEBUG: charge_bar reference is: ", charge_bar)
+	if charge_bar:
+		charge_bar.value = charge_ratio
+
+
+func _on_player_jump_charge_ended():
+	if charge_bar:
+		charge_bar.visible = false
+		charge_bar.value = 0.0
+		print("HUD: Charge ended/cancelled, hiding bar.")

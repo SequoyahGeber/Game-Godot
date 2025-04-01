@@ -29,7 +29,8 @@ animations = [{
 radius = 9.0
 height = 24.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(0.65, 0.65)
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

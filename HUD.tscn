@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwy0ui716ti83"]
+[gd_scene load_steps=4 format=3 uid="uid://bwy0ui716ti83"]
 
 [ext_resource type="Script" uid="uid://cvkxvipqxqdy2" path="res://scripts/HUD.gd" id="1_k5de2"]
+[ext_resource type="Texture2D" uid="uid://b8p2pud0xmvg0" path="res://assets/whiteProgressBar.png" id="2_n10im"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5de2"]
 font_size = 76
@@ -33,14 +34,21 @@ text = "this is the lives"
 label_settings = SubResource("LabelSettings_k5de2")
 
 [node name="jumpChargeBar" type="TextureProgressBar" parent="."]
-visible = false
-offset_left = 735.0
-offset_top = 413.0
-offset_right = 1308.0
-offset_bottom = 518.0
-rotation = 0.000190589
-scale = Vector2(0.480032, 0.480032)
-size_flags_horizontal = 4
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -860.0
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "CHARGE BAR"
 max_value = 1.0
 step = 0.1
-tint_progress = Color(0.946842, 0.0695217, 0, 1)
+value = 0.4
+texture_under = ExtResource("2_n10im")
+texture_progress = ExtResource("2_n10im")
+tint_progress = Color(0.945098, 0.0705882, 0, 1)
