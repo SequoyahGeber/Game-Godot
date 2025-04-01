@@ -31,3 +31,16 @@ theme_override_colors/font_color = Color(0.823337, 0.638662, 3.85046e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "this is the lives"
 label_settings = SubResource("LabelSettings_k5de2")
+
+[node name="jumpChargeBar" type="TextureProgressBar" parent="."]
+visible = false
+offset_left = 735.0
+offset_top = 413.0
+offset_right = 1308.0
+offset_bottom = 518.0
+rotation = 0.000190589
+scale = Vector2(0.480032, 0.480032)
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.1
+tint_progress = Color(0.946842, 0.0695217, 0, 1)
