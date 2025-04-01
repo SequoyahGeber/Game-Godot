@@ -103,9 +103,7 @@ func _process(_delta: float) -> void:
 			# Set the charge bar's position using global_position (correct for CanvasLayer)
 			# Apply the vertical offset configured earlier
 			charge_bar.global_position = screen_pos + charge_bar_offset - bar_center_offset
-			print("DEBUG: Setting charge bar position to: ", charge_bar.global_position)
 
-		# else: Handle case where there's no 2D camera if necessary
 func _on_GameManager_score_updated(new_score):
 	print("HUD: _on_GameManager_score_updated called. new_score = ", new_score) # DEBUG
 
@@ -134,11 +132,8 @@ func _on_player_jump_charge_started():
 	if charge_bar:
 		charge_bar.visible = true
 		charge_bar.value = 0.0
-		print("HUD: Charge started, showing bar.")
 
 func _on_player_jump_charge_updated(charge_ratio: float):
-	print("DEBUG: _on_player_jump_charge_started called.")
-	print("DEBUG: charge_bar reference is: ", charge_bar)
 	if charge_bar:
 		charge_bar.value = charge_ratio
 
@@ -147,4 +142,3 @@ func _on_player_jump_charge_ended():
 	if charge_bar:
 		charge_bar.visible = false
 		charge_bar.value = 0.0
-		print("HUD: Charge ended/cancelled, hiding bar.")

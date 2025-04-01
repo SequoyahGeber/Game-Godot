@@ -9,7 +9,7 @@ var lives: int = 3
 
 
 func _ready():
-	print("GameManager Autoload Ready!") 
+	print("GameManager Autoload Ready!")
 	
 func add_score(amount: int):
 	score += amount
@@ -18,4 +18,3 @@ func add_score(amount: int):
 func lose_life(amount: int):
 	lives -= amount
 	emit_signal("lives_updated", lives)
-	
