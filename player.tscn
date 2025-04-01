@@ -25,12 +25,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
-radius = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+radius = 9.0
+height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(-1, 9)
-scale = Vector2(0.75, 0.75)
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -42,5 +41,6 @@ autoplay = "idle"
 frame_progress = 0.372243
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -7)
-shape = SubResource("CircleShape2D_onrkg")
+position = Vector2(1, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_onrkg")
