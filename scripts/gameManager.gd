@@ -15,7 +15,7 @@ func add_score(amount: int):
 	score += amount
 	emit_signal("score_updated", score)
 	
-func remove_life(amount: int):
+func lose_life(amount: int):
 	lives -= amount
 	emit_signal("lives_updated", lives)
 	

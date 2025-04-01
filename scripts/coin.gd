@@ -1,7 +1,6 @@
 extends Area2D
 
 func _ready() -> void:
-	# on the target object (in this case, 'self' refers to this Area2D node).
 	var body_entered_callable = Callable(self, "_on_body_entered")
 
 	if not is_connected("body_entered", body_entered_callable):

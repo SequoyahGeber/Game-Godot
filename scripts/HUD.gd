@@ -1,9 +1,12 @@
 # HUD.gd
 extends CanvasLayer
 
+# Get references to the labels in the scene tree
+# Ensure you have nodes named "scoreLabel" and "livesLabel" as children of HUD
 @onready var score_label: Label = $scoreLabel
 @onready var lives_label: Label = $livesLabel 
 func _ready() -> void:
+	# --- Node Checks ---
 	var nodes_ok = true
 	if not score_label:
 		push_error("Child node 'scoreLabel' not found in HUD scene!")
