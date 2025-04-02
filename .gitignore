@@ -1,5 +1,120 @@
-# Godot 4+ specific ignores
+# =========================================================================
+# ========== Gitignore for Godot Engine 4+ Projects =======================
+# =========================================================================
+# This file tells Git which files and directories it should ignore.
+# Lines starting with '#' are comments.
+
+# === User Specified ===
+# Godot 4+ editor cache, metadata, intermediate files, etc.
+# **CRITICAL:** NEVER commit this directory.
 .godot/
+
+# User-defined directory for Android builds/exports (root only)
 /android/
-/Builds
-.vscode
+
+# User-defined directory for general game builds/exports (root only)
+/Builds/
+
+# Visual Studio Code specific settings and cache
+.vscode/
+
+# === Godot Engine Specific ===
+# While .godot/ covers most things in v4, .import might appear if migrating
+# or due to specific addons/workflows, although less common now.
+# .import/
+
+# Mono/C# specific (if using C#)
+# ===============================
+# Build output directories
+bin/
+obj/
+
+# Rider/JetBrains specific files
+#.idea/ # Often better in global gitignore, but can include here
+*.userprefs
+*.pidb
+*.suo
+*.user
+*.sln.cache
+
+# Visual Studio / MSBuild specific user files
+*.csproj.user
+
+# === Exported Binaries & Packages ===
+# Common export directories (add yours if different)
+export/
+Builds/
+release/
+# Platform specific export folders (often created inside the above)
+windows/
+linux/
+macos/
+html5/
+ios/
+# NOTE: You already specified /android/ and /Builds/ at the top
+
+# Exported game files (if they end up outside specific directories)
+*.pck
+*.zip
+*.exe
+*.apk
+*.aab
+*.dmg
+*.app/
+*.x86_64
+*.x86
+*.arm64
+# Add other platform specific binaries if needed
+
+# === IDE / Editor Specific ===
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# === OS Specific ===
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# === Logs & Temporary Files ===
+*.log
+*.tmp
+*.bak
+*.swp
+
+# === Optional: Asset Library ===
+# If you download assets via the Godot Asset Library, they often go here.
+# Decide if you want to commit downloaded assets or require collaborators
+# to download them separately. If you don't commit them, ignore this:
+# addons/ # Be careful: Only ignore if ALL addons are from AssetLib/external.
+          # If you develop your own addons IN this folder, DO NOT ignore it.
+.godot/imported/ # Asset library extracted files (often handled by .godot/ anyway)
+
+
+# =========================================================================
+# === Files that SHOULD typically be committed (DO NOT IGNORE): =========
+# =========================================================================
+# - project.godot (Main project configuration)
+# - *.gd (GDScript files)
+# - *.cs (C# source files - if using C#)
+# - *.tscn (Scene files)
+# - *.tres (Resource files)
+# - *.png, *.jpg, *.svg, etc. (Image assets)
+# - *.wav, *.ogg, *.mp3 (Audio assets)
+# - *.ttf, *.otf (Font files)
+# - *.json, *.csv, *.xml (Data files)
+# - *.glsl, *.gdshader (Shader files)
+# - export_presets.cfg (Export configuration)
+# - override.cfg (Project settings overrides)
+# - icon.png / icon.svg (Project icon)
+# - Any custom addons you are developing or need shared in `addons/`
+# =========================================================================
