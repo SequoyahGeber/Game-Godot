@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://buawfitytxpo1"]
+[gd_scene load_steps=9 format=4 uid="uid://buawfitytxpo1"]
 
 [ext_resource type="Texture2D" uid="uid://dd88g5nxhy7y2" path="res://assets/sky.png" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dxl1eprfekarv" path="res://player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://dqpjgr1fq5t1x" path="res://coin.tscn" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://da6oxv3a7wewe" path="res://assets/tileset4.png" id="5_eow3j"]
+[ext_resource type="PackedScene" uid="uid://dh3xo0ephqjfk" path="res://moving_platform_scene.tscn" id="6_eow3j"]
 [ext_resource type="PackedScene" uid="uid://bwy0ui716ti83" path="res://Hud.tscn" id="6_ryrav"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
@@ -94,3 +95,14 @@ position = Vector2(-11, -192)
 
 [node name="coin5" parent="." instance=ExtResource("3_feb5d")]
 position = Vector2(-138, -64)
+
+[node name="movingPlatformScene" parent="." instance=ExtResource("6_eow3j")]
+position = Vector2(93, -194)
+
+[node name="pointA" parent="movingPlatformScene" index="1"]
+position = Vector2(-39, 0)
+
+[node name="pointB" parent="movingPlatformScene" index="2"]
+position = Vector2(24, 0)
+
+[editable path="movingPlatformScene"]
