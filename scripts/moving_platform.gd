@@ -1,7 +1,7 @@
 extends AnimatableBody2D
 
 
-@export var speed: float = 25.0
+@export var speed: float = 35.0
 @export var point_a: Marker2D
 @export var point_b: Marker2D
 @export var start_a_point_a: bool = true

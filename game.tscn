@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://buawfitytxpo1"]
+[gd_scene load_steps=16 format=4 uid="uid://buawfitytxpo1"]
 
 [ext_resource type="Texture2D" uid="uid://dd88g5nxhy7y2" path="res://assets/sky.png" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dxl1eprfekarv" path="res://player.tscn" id="1_80nbo"]
@@ -52,7 +52,40 @@ texture = ExtResource("5_eow3j")
 physics_layer_0/collision_layer = 1
 sources/4 = SubResource("TileSetAtlasSource_7jktm")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ryrav"]
+polygon = PackedVector2Array(-147, -456, -147, 8, 141, 8, 141, -459, 318, -458, 319, 153, -338, 151, -337, -456)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eow3j"]
+polygon = PackedVector2Array(-18, -188, -4, -188, -2, -184, 30, -184, 30, -168, -18, -168)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j5wjh"]
+polygon = PackedVector2Array(-130, -136, -130, -120, -66, -120, -66, -136, -82, -136, -82, -139, -91, -139, -91, -138, -114, -138, -114, -136)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vef74"]
+polygon = PackedVector2Array(-51, -108, -51, -72, -3, -72, -3, -103, -19, -103, -19, -106, -36, -106, -36, -108)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hve3p"]
+polygon = PackedVector2Array(140, -155, 132, -155, 132, -154, 109, -154, 109, -152, 93, -152, 93, -136, 29, -136, 29, -120, 109, -120, 109, -137, 140, -137)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mfdv2"]
+polygon = PackedVector2Array(29, -76, 29, -56, 61, -56, 61, -40, 77, -40, 77, -72, 45, -72, 45, -74, 44, -74, 44, -76)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iotsf"]
+polygon = PackedVector2Array(125, -40, 109, -40, 109, -24, 93, -24, 93, -8, 125, -8, 125, 8, 141, 8, 141, -24, 125, -24)
+
 [node name="Game" type="Node2D"]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+top_level = true
+position = Vector2(151, -780)
+rotation = 0.1309
+color = Color(1, 0.970667, 0.92, 1)
+energy = 0.18
+shadow_enabled = true
+height = 0.12
+max_distance = 3837.0
 
 [node name="Sky" type="TextureRect" parent="."]
 offset_left = -144.0
@@ -78,8 +111,10 @@ position = Vector2(13, 8)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -45)
-zoom = Vector2(4, 4)
+zoom = Vector2(5.5, 5.5)
+process_callback = 0
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="coin" parent="." instance=ExtResource("3_feb5d")]
 position = Vector2(118, -44)
@@ -104,5 +139,30 @@ position = Vector2(-39, 0)
 
 [node name="pointB" parent="movingPlatformScene" index="2"]
 position = Vector2(24, 0)
+
+[node name="lightOccluders" type="StaticBody2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="lightOccluders"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_ryrav")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="lightOccluders"]
+occluder = SubResource("OccluderPolygon2D_eow3j")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="lightOccluders"]
+occluder = SubResource("OccluderPolygon2D_j5wjh")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="lightOccluders"]
+occluder = SubResource("OccluderPolygon2D_vef74")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="lightOccluders"]
+occluder = SubResource("OccluderPolygon2D_hve3p")
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="lightOccluders"]
+occluder = SubResource("OccluderPolygon2D_mfdv2")
+
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="lightOccluders"]
+occluder = SubResource("OccluderPolygon2D_iotsf")
 
 [editable path="movingPlatformScene"]

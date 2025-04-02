@@ -73,36 +73,36 @@ func find_player_and_connect():
 		printerr("HUD Error: Could not find any node in group 'player'. Player connection failed.")
 
 
-func _process(_delta: float) -> void:
-	# --- Update Charge Bar Position ---
-	if charge_bar and charge_bar.visible and is_instance_valid(player_node):
-		var camera := get_viewport().get_camera_2d()
-		if camera:
-			# --- CORRECTED Godot 4 2D World-to-Screen Calculation ---
-			# 1. Get the viewport's visible rectangle size
-			var viewport_size = get_viewport().get_visible_rect().size
-			# 2. Calculate the center of the viewport (this is where the camera's origin appears on screen)
-			var screen_center = viewport_size / 2.0
-
-			# 3. Calculate the player's world position relative to the camera's world position
-			var relative_pos = player_node.global_position - camera.global_position
-
-			# 4. Apply the camera's zoom to this relative position. This gives the offset
-			#    from the screen center in pixels.
-			var zoomed_offset = relative_pos * camera.zoom
-
-			# 5. The final screen position is the screen's center plus the calculated offset
-			var screen_pos = screen_center + zoomed_offset
-			# --- END OF CALCULATION ---
-
-
-			# --- Apply vertical offset and horizontal centering ---
-			# Calculate horizontal offset to center the bar
-			var bar_center_offset = Vector2(charge_bar.size.x / 2.0, 0)
-
-			# Set the charge bar's position using global_position (correct for CanvasLayer)
-			# Apply the vertical offset configured earlier
-			charge_bar.global_position = screen_pos + charge_bar_offset - bar_center_offset
+#func _process(_delta: float) -> void:
+	## --- Update Charge Bar Position ---
+	#if charge_bar and charge_bar.visible and is_instance_valid(player_node):
+		#var camera := get_viewport().get_camera_2d()
+		#if camera:
+			## --- CORRECTED Godot 4 2D World-to-Screen Calculation ---
+			## 1. Get the viewport's visible rectangle size
+			#var viewport_size = get_viewport().get_visible_rect().size
+			## 2. Calculate the center of the viewport (this is where the camera's origin appears on screen)
+			#var screen_center = viewport_size / 2.0
+#
+			## 3. Calculate the player's world position relative to the camera's world position
+			#var relative_pos = player_node.global_position - camera.global_position
+#
+			## 4. Apply the camera's zoom to this relative position. This gives the offset
+			##    from the screen center in pixels.
+			#var zoomed_offset = relative_pos * camera.zoom
+#
+			## 5. The final screen position is the screen's center plus the calculated offset
+			#var screen_pos = screen_center + zoomed_offset
+			## --- END OF CALCULATION ---
+#
+#
+			## --- Apply vertical offset and horizontal centering ---
+			## Calculate horizontal offset to center the bar
+			#var bar_center_offset = Vector2(charge_bar.size.x / 2.0, 0)
+#
+			## Set the charge bar's position using global_position (correct for CanvasLayer)
+			## Apply the vertical offset configured earlier
+			#charge_bar.global_position = screen_pos + charge_bar_offset - bar_center_offset
 
 func _on_GameManager_score_updated(new_score):
 	print("HUD: _on_GameManager_score_updated called. new_score = ", new_score) # DEBUG

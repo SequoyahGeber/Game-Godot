@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cwhqk8g0bvlio"]
+
+[node name="light" type="Node2D"]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(1, 0.756863, 0.596078, 1)
+energy = 0.76
