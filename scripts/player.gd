@@ -4,7 +4,7 @@ signal jump_charge_started
 signal jump_charge_updated(charge_ratio: float)
 signal jump_charge_ended
 
-const SPEED = 100.0
+const SPEED = 75.0
 const GRAVITY = 980.0
 
 const MAX_JUMP_VELOCITY = -350.0

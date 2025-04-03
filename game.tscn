@@ -113,11 +113,11 @@ height = 0.12
 max_distance = 178.0
 
 [node name="Sky" type="TextureRect" parent="."]
-offset_left = -144.0
-offset_top = -765.0
-offset_right = 9.0
-offset_bottom = -336.0
-scale = Vector2(1.86133, 1.86133)
+offset_left = -167.0
+offset_top = -2357.0
+offset_right = -14.0
+offset_bottom = -1928.0
+scale = Vector2(2.06604, 5.53829)
 texture = ExtResource("1_7jktm")
 expand_mode = 1
 stretch_mode = 1
@@ -130,7 +130,7 @@ tile_map_data = PackedByteArray("AAAAAAAABAAJAAIAAAAAAAEABAAJAAMAAAABAAAABAAKAAI
 tile_set = SubResource("TileSet_fc0e3")
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(-0.999999, 7)
+position = Vector2(0, 3)
 
 [node name="HUD" parent="Player" instance=ExtResource("6_ryrav")]
 
@@ -175,6 +175,7 @@ position = Vector2(-40, 0)
 position = Vector2(124, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(43, -331)
 energy = 8.73
 shadow_enabled = true

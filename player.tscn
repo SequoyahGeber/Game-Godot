@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxl1eprfekarv"]
+[gd_scene load_steps=13 format=3 uid="uid://dxl1eprfekarv"]
 
 [ext_resource type="Script" uid="uid://djs3wibrow158" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ctr423lpvcnkm" path="res://assets/slime2.png" id="2_onrkg"]
@@ -68,10 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
-radius = 6.15385
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_onrkg"]
-polygon = PackedVector2Array(-10.7692, -10.7692, -10.7692, -3.07692, -9.23077, -1.53846, -9.23077, -1.53846, -7.69231, 0, -7.69231, 0, -4.61539, 1.53846, -4.61539, 1.53846, 6.15385, 1.53846, 8.63321, -9.53674e-07, 10.7692, 0, 12.3077, -1.53846, 12.3077, -1.53846, 13.8462, -3.07692, 13.8462, -10.7692, 12.3077, -13.8462, 12.3077, -13.8462, 10.7692, -15.3846, 10.7692, -15.3846, 7.69231, -16.9231, 6.15385, -16.9231, 4.61539, -18.4615, 4.61539, -18.4615, -3.07692, -18.4615, -4.61539, -16.9231, -4.61539, -16.9231, -6.15385, -16.9231, -7.69231, -15.3846, -7.69231, -15.3846, -9.23077, -13.8462, -9.23077, -13.8462, -10.7692, -12.3077, -10.7692, -12.3077)
+radius = 7.71113
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.65, 0.65)
@@ -81,15 +78,6 @@ script = ExtResource("1_onrkg")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nvl01")
 autoplay = "default"
-frame_progress = 0.990202
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.54747e-13, 1.53846)
-rotation = 1.5708
-scale = Vector2(0.979487, 1.50802)
 shape = SubResource("CircleShape2D_onrkg")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2(-1.53846, 7.69231)
-scale = Vector2(0.711392, 0.574494)
-occluder = SubResource("OccluderPolygon2D_onrkg")
