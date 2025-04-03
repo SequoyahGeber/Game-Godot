@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dqpjgr1fq5t1x" path="res://coin.tscn" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://da6oxv3a7wewe" path="res://assets/tileset4.png" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dh3xo0ephqjfk" path="res://moving_platform_scene.tscn" id="6_eow3j"]
-[ext_resource type="PackedScene" uid="uid://bwy0ui716ti83" path="res://Hud.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://bwy0ui716ti83" path="res://HUD.tscn" id="6_ryrav"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lc2xo"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
