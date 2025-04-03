@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=4 uid="uid://buawfitytxpo1"]
+[gd_scene load_steps=20 format=4 uid="uid://buawfitytxpo1"]
 
 [ext_resource type="Texture2D" uid="uid://dd88g5nxhy7y2" path="res://assets/sky.png" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dxl1eprfekarv" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://dn38ybqdkx13s" path="res://haze.tscn" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dqpjgr1fq5t1x" path="res://coin.tscn" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://da6oxv3a7wewe" path="res://assets/tileset4.png" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dh3xo0ephqjfk" path="res://moving_platform_scene.tscn" id="6_eow3j"]
-[ext_resource type="PackedScene" uid="uid://bwy0ui716ti83" path="res://HUD.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://cedh4pvftdn1p" path="res://Hud.tscn" id="6_ryrav"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lc2xo"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -101,6 +102,9 @@ sources/4 = SubResource("TileSetAtlasSource_7jktm")
 
 [node name="Game" type="Node2D"]
 
+[node name="Haze" parent="." instance=ExtResource("1_eow3j")]
+top_level = true
+
 [node name="Sun" type="DirectionalLight2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(1, 0, 0, 1)
@@ -109,6 +113,7 @@ rotation = 0.1309
 color = Color(1, 0.972549, 0.815686, 1)
 energy = 0.18
 shadow_enabled = true
+shadow_filter = 1
 height = 0.12
 max_distance = 178.0
 
