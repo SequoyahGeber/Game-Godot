@@ -1,36 +1,77 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxl1eprfekarv"]
+[gd_scene load_steps=14 format=3 uid="uid://dxl1eprfekarv"]
 
-[ext_resource type="Texture2D" uid="uid://dkl7tnf3yktkm" path="res://assets/slimebob-sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://djs3wibrow158" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://ctr423lpvcnkm" path="res://assets/slime2.png" id="2_onrkg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4flbx"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 22, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(22, 0, 22, 15)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(44, 0, 22, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(66, 0, 22, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(88, 0, 22, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(110, 0, 22, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(132, 0, 22, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(154, 0, 22, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvl01"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4flbx")
+"texture": SubResource("AtlasTexture_i3pqv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b26j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
+"name": &"default",
+"speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
-radius = 9.0
-height = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 6.15385
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_onrkg"]
-polygon = PackedVector2Array(-10.7692, -10.7692, -10.7692, -3.07692, -9.23077, -1.53846, -9.23077, -1.53846, -7.69231, 0, -7.69231, 0, -4.61539, 1.53846, -4.61539, 1.53846, 6.15385, 1.53846, 7.69231, 0, 10.7692, 0, 12.3077, -1.53846, 12.3077, -1.53846, 13.8462, -3.07692, 13.8462, -10.7692, 12.3077, -13.8462, 12.3077, -13.8462, 10.7692, -15.3846, 10.7692, -15.3846, 7.69231, -16.9231, 6.15385, -16.9231, 4.61539, -18.4615, 4.61539, -18.4615, -3.07692, -18.4615, -4.61539, -16.9231, -4.61539, -16.9231, -6.15385, -16.9231, -7.69231, -15.3846, -7.69231, -15.3846, -9.23077, -13.8462, -9.23077, -13.8462, -10.7692, -12.3077, -10.7692, -12.3077)
+polygon = PackedVector2Array(-10.7692, -10.7692, -10.7692, -3.07692, -9.23077, -1.53846, -9.23077, -1.53846, -7.69231, 0, -7.69231, 0, -4.61539, 1.53846, -4.61539, 1.53846, 6.15385, 1.53846, 8.63321, -9.53674e-07, 10.7692, 0, 12.3077, -1.53846, 12.3077, -1.53846, 13.8462, -3.07692, 13.8462, -10.7692, 12.3077, -13.8462, 12.3077, -13.8462, 10.7692, -15.3846, 10.7692, -15.3846, 7.69231, -16.9231, 6.15385, -16.9231, 4.61539, -18.4615, 4.61539, -18.4615, -3.07692, -18.4615, -4.61539, -16.9231, -4.61539, -16.9231, -6.15385, -16.9231, -7.69231, -15.3846, -7.69231, -15.3846, -9.23077, -13.8462, -9.23077, -13.8462, -10.7692, -12.3077, -10.7692, -12.3077)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.65, 0.65)
@@ -38,16 +79,17 @@ script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -7)
-sprite_frames = SubResource("SpriteFrames_i3pqv")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.372243
+sprite_frames = SubResource("SpriteFrames_nvl01")
+autoplay = "default"
+frame_progress = 0.990202
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -8)
+position = Vector2(-4.54747e-13, 1.53846)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_onrkg")
+scale = Vector2(0.979487, 1.50802)
+shape = SubResource("CircleShape2D_onrkg")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-1.53846, 7.69231)
+scale = Vector2(0.711392, 0.574494)
 occluder = SubResource("OccluderPolygon2D_onrkg")
