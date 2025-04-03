@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dd88g5nxhy7y2" path="res://assets/sky.png" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dxl1eprfekarv" path="res://player.tscn" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://dn38ybqdkx13s" path="res://haze.tscn" id="1_eow3j"]
+[ext_resource type="PackedScene" path="res://haze.tscn" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dqpjgr1fq5t1x" path="res://coin.tscn" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://da6oxv3a7wewe" path="res://assets/tileset4.png" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dh3xo0ephqjfk" path="res://moving_platform_scene.tscn" id="6_eow3j"]
-[ext_resource type="PackedScene" uid="uid://cedh4pvftdn1p" path="res://Hud.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://cedh4pvftdn1p" path="res://HUD.tscn" id="6_ryrav"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lc2xo"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

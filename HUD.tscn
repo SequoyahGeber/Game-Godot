@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvkxvipqxqdy2" path="res://scripts/HUD.gd" id="1_k5de2"]
 [ext_resource type="Texture2D" uid="uid://b8p2pud0xmvg0" path="res://assets/whiteProgressBar.png" id="2_n10im"]
-[ext_resource type="Script" path="res://fps.gd" id="3_vow1y"]
+[ext_resource type="Script" uid="uid://c1eiil8344f1x" path="res://fps.gd" id="3_vow1y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5de2"]
 font_size = 76
