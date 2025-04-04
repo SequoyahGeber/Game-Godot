@@ -4,6 +4,7 @@ signal score_updated(new_score: int)
 
 signal lives_updated(new_lives: int)
 
+
 var score: int = 0
 var lives: int = 3
 

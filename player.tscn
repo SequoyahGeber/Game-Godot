@@ -3,41 +3,44 @@
 [ext_resource type="Script" uid="uid://djs3wibrow158" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ctr423lpvcnkm" path="res://assets/slime2.png" id="2_onrkg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 24, 17)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
-region = Rect2(0, 0, 22, 15)
+region = Rect2(24, 0, 24, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("2_onrkg")
-region = Rect2(22, 0, 22, 15)
+region = Rect2(48, 0, 24, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
 atlas = ExtResource("2_onrkg")
-region = Rect2(44, 0, 22, 15)
+region = Rect2(72, 0, 24, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("2_onrkg")
-region = Rect2(66, 0, 22, 15)
+region = Rect2(96, 0, 24, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
 atlas = ExtResource("2_onrkg")
-region = Rect2(88, 0, 22, 15)
+region = Rect2(120, 0, 24, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
 atlas = ExtResource("2_onrkg")
-region = Rect2(110, 0, 22, 15)
+region = Rect2(144, 0, 24, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
 atlas = ExtResource("2_onrkg")
-region = Rect2(132, 0, 22, 15)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
-atlas = ExtResource("2_onrkg")
-region = Rect2(154, 0, 22, 15)
+region = Rect2(168, 0, 24, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nvl01"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i3pqv")
 }, {
@@ -58,26 +61,27 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b26j0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n7ghd")
 }],
 "loop": true,
 "name": &"default",
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
-radius = 7.71113
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7ghd"]
+radius = 6.0
+height = 18.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(0.65, 0.65)
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nvl01")
 autoplay = "default"
+frame = 1
+frame_progress = 0.524642
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_onrkg")
+position = Vector2(1, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n7ghd")
