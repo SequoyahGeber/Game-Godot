@@ -7,6 +7,8 @@ signal lives_updated(new_lives: int)
 var score: int = 0
 var lives: int = 3
 
+var spawnX: int = 0
+var spawnY: int = 5
 
 func _ready():
 	print("GameManager Autoload Ready!")

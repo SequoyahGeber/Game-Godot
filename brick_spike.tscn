@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://by2q12mtn7ng3"]
+
+[ext_resource type="Script" uid="uid://vs4aj2ludn8h" path="res://scripts/brick_spike.gd" id="1_rf4or"]
+[ext_resource type="Texture2D" uid="uid://dqxo1dr2iqeoe" path="res://assets/brickSpike.png" id="1_sbqoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf4or"]
+size = Vector2(17, 7.5)
+
+[node name="brickSpike" type="Area2D"]
+script = ExtResource("1_rf4or")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sbqoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.75)
+shape = SubResource("RectangleShape2D_rf4or")

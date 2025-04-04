@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://buawfitytxpo1"]
+[gd_scene load_steps=21 format=4 uid="uid://buawfitytxpo1"]
 
 [ext_resource type="Texture2D" uid="uid://dd88g5nxhy7y2" path="res://assets/sky.png" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dxl1eprfekarv" path="res://player.tscn" id="1_80nbo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://da6oxv3a7wewe" path="res://assets/tileset4.png" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dh3xo0ephqjfk" path="res://moving_platform_scene.tscn" id="6_eow3j"]
 [ext_resource type="PackedScene" uid="uid://cedh4pvftdn1p" path="res://Hud.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://by2q12mtn7ng3" path="res://brick_spike.tscn" id="8_j5wjh"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lc2xo"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -111,9 +112,10 @@ self_modulate = Color(1, 0, 0, 1)
 top_level = true
 rotation = 0.1309
 color = Color(1, 0.972549, 0.815686, 1)
-energy = 0.18
+energy = 0.15
 shadow_enabled = true
 shadow_filter = 1
+shadow_filter_smooth = 2.0
 height = 0.12
 max_distance = 178.0
 
@@ -185,6 +187,18 @@ position = Vector2(43, -331)
 energy = 8.73
 shadow_enabled = true
 texture = SubResource("PlaceholderTexture2D_ryrav")
+
+[node name="brickSpike" parent="." instance=ExtResource("8_j5wjh")]
+position = Vector2(-73, -12)
+
+[node name="brickSpike2" parent="." instance=ExtResource("8_j5wjh")]
+position = Vector2(134, -28)
+
+[node name="brickSpike3" parent="." instance=ExtResource("8_j5wjh")]
+position = Vector2(133, -158)
+
+[node name="brickSpike4" parent="." instance=ExtResource("8_j5wjh")]
+position = Vector2(-99, -142)
 
 [editable path="movingPlatformScene"]
 [editable path="movingPlatformScene2"]
