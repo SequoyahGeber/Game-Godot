@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dn38ybqdkx13s"]
+[gd_scene load_steps=0 format=3 uid="uid://dn38ybqdkx13s"]
 
 [node name="Haze" type="Node2D"]
 
