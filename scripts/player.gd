@@ -4,15 +4,32 @@ signal jump_charge_started
 signal jump_charge_updated(charge_ratio: float)
 signal jump_charge_ended
 
-const SPEED = 75.0
-const GRAVITY = 980.0
+const SPEED = 85.0
+const GRAVITY = 750.0
 
 const MAX_JUMP_VELOCITY = -350.0
 const MIN_JUMP_VELOCITY = -100.0
-const JUMP_CHARGE_DURATION = 0.75
+const JUMP_CHARGE_DURATION = 0.5
 
 var is_charging_jump = false
 var jump_charge_timer = 0.0
+
+var start_position: Vector2 = Vector2.ZERO
+
+func _ready() -> void:
+	start_position = global_position
+	print("Player Ready. Initial Position: ", start_position)
+	call_deferred("register_with_game_manager")
+
+	if GameManager and GameManager.has_signal("player_died"):
+		GameManager.player_died.connect(_on_player_died)
+		print("Player: Connected to GameManager.player_died")
+
+	elif not GameManager:
+		printerr("Player Error: GameManager node not found!")
+	else:
+		printerr("Player Error: GameManager is missing the 'player_died' signal!")
+
 
 func _physics_process(delta: float) -> void:
 	var on_floor = is_on_floor()
@@ -71,3 +88,23 @@ func _physics_process(delta: float) -> void:
 
 	# --- 4. Apply Movement and Collision ---
 	move_and_slide()
+
+
+func register_with_game_manager():
+	if GameManager:
+		GameManager.register_player_start_position(start_position)
+	else:
+		printerr("Player Error: Cannot register with GameManager, it was not found!")
+
+
+func _on_player_died() -> void:
+	print("Player: Received player_died signal. Resetting position and state.")
+
+	if GameManager:
+		global_position = GameManager.get_player_start_position()
+		velocity = Vector2.ZERO
+		is_charging_jump = false
+		jump_charge_timer = 0.0
+		jump_charge_ended.emit()
+	else:
+		printerr("Player Error: GameManager not found during respawn attempt!")
