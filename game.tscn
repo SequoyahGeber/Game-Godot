@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://buawfitytxpo1"]
+[gd_scene load_steps=35 format=4 uid="uid://buawfitytxpo1"]
 
 [ext_resource type="Texture2D" uid="uid://dd88g5nxhy7y2" path="res://assets/sky.png" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dxl1eprfekarv" path="res://player.tscn" id="1_80nbo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dh3xo0ephqjfk" path="res://moving_platform_scene.tscn" id="6_eow3j"]
 [ext_resource type="PackedScene" uid="uid://cedh4pvftdn1p" path="res://HUD.tscn" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://by2q12mtn7ng3" path="res://brick_spike.tscn" id="8_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://q7gqpegbh8dx" path="res://assets/particles/circle_05.png" id="10_hve3p"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vef74"]
 light_mode = 2
@@ -104,6 +105,78 @@ physics_layer_0/collision_layer = 1
 sources/4 = SubResource("TileSetAtlasSource_7jktm")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vef74"]
+
+[sub_resource type="Curve" id="Curve_mfdv2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_iotsf"]
+curve = SubResource("Curve_mfdv2")
+
+[sub_resource type="Curve" id="Curve_lc2xo"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_215e1"]
+curve = SubResource("Curve_lc2xo")
+
+[sub_resource type="Curve" id="Curve_7sc4i"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 50), 0.0, 0.0, 0, 0, Vector2(0.3, 100), 0.0, 0.0, 0, 0, Vector2(1, 50), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_80cx4"]
+curve = SubResource("Curve_7sc4i")
+
+[sub_resource type="Curve" id="Curve_e8heu"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.00564972, -1), 0.0, 0.0, 0, 0, Vector2(0.531073, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rvswv"]
+curve = SubResource("Curve_e8heu")
+
+[sub_resource type="Curve" id="Curve_boyg6"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3, 200), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_e36ub"]
+curve = SubResource("Curve_boyg6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hve3p"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1, 0)
+emission_shape = 3
+emission_box_extents = Vector3(50000, 500000, 0)
+angle_min = -720.0
+angle_max = 720.0
+angle_curve = SubResource("CurveTexture_215e1")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -100.0
+radial_accel_max = 100.0
+radial_accel_curve = SubResource("CurveTexture_e36ub")
+damping_min = 1.176
+damping_max = 10.928
+damping_curve = SubResource("CurveTexture_80cx4")
+scale_max = 4.0
+color = Color(1, 1, 0.807843, 1)
+alpha_curve = SubResource("CurveTexture_iotsf")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.00999998
+hue_variation_curve = SubResource("CurveTexture_rvswv")
+turbulence_enabled = true
 
 [node name="Game" type="Node2D"]
 position = Vector2(0, -160)
@@ -262,6 +335,20 @@ position = Vector2(-44, -540)
 
 [node name="brickSpike6" parent="." instance=ExtResource("8_j5wjh")]
 position = Vector2(-57, -540)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+scale = Vector2(-0.005, -0.005)
+amount = 250
+texture = ExtResource("10_hve3p")
+lifetime = 20.0
+preprocess = 10.0
+speed_scale = 0.1
+collision_base_size = 0.0
+visibility_rect = Rect2(-50000, -25000, 90000, 500000)
+local_coords = true
+draw_order = 0
+trail_lifetime = 9.87
+process_material = SubResource("ParticleProcessMaterial_hve3p")
 
 [editable path="movingPlatformScene"]
 [editable path="movingPlatformScene2"]
