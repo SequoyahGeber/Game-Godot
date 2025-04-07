@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh3xo0ephqjfk"]
+[gd_scene load_steps=5 format=3 uid="uid://dh3xo0ephqjfk"]
 
 [ext_resource type="Script" uid="uid://c54o1lexwfjku" path="res://scripts/moving_platform.gd" id="1_2ryjv"]
 [ext_resource type="Texture2D" uid="uid://da6oxv3a7wewe" path="res://assets/tileset4.png" id="1_ny23r"]
@@ -6,9 +6,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ryjv"]
 atlas = ExtResource("1_ny23r")
 region = Rect2(0, 44, 48, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny23r"]
-size = Vector2(48, 20)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2ryjv"]
 polygon = PackedVector2Array(24, -9, 15, -9, 15, -8, -9, -8, -9, -10, -24, -10, -24, 10, 24, 10)
@@ -23,8 +20,9 @@ point_b = NodePath("../pointB")
 [node name="Sprite2D" type="Sprite2D" parent="movingPlatform"]
 texture = SubResource("AtlasTexture_2ryjv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="movingPlatform"]
-shape = SubResource("RectangleShape2D_ny23r")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="movingPlatform"]
+position = Vector2(7, 0)
+polygon = PackedVector2Array(17, -9, 8, -9, 8, -8, -16, -8, -16, -10, -31, -10, -31, 10, 17, 10)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="movingPlatform"]
 occluder = SubResource("OccluderPolygon2D_2ryjv")
