@@ -95,8 +95,8 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nvl01")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.942439
+frame_progress = 0.155152
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-2, 0)
-polygon = PackedVector2Array(14, -5, 9, -11, 6, -13, 4, -13, 1, -11, 1, -6, -3, -2, -5, 3, -10, 10, -10, 12, -9, 13, 4, 13, 12, 3, 13, -3)
+polygon = PackedVector2Array(14, -5, 9, -11, 6, -13, 4, -13, 1, -11, 1, -6, -3, -2, -5, 3, -10, 10, -10, 12, -8, 12, 4, 12, 12, 3, 13, -3)
